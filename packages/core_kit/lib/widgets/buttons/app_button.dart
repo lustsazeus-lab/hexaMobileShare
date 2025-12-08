@@ -12,7 +12,7 @@ class AppButton extends StatelessWidget {
   /// Callback when the button is pressed
   final VoidCallback? onPressed;
 
-  /// Optional leading icon
+  /// Optional leading icon (for test doc)
   final IconData? icon;
 
   /// Button variant style
