@@ -38,14 +38,6 @@ class AppShadows {
       color: Color(0x0F000000),
       offset: Offset(0, 2),
       blurRadius: 6,
-
-
-
-
-
-
-
-
       spreadRadius: 2,
     ),
   ];
