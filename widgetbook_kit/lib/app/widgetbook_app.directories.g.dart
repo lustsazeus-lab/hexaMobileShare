@@ -15,8 +15,6 @@ import 'package:widgetbook_kit/stories/core_kit/buttons/app_button_stories.dart'
     as _widgetbook_kit_stories_core_kit_buttons_app_button_stories;
 import 'package:widgetbook_kit/stories/core_kit/widgets/buttons/app_button_stories.dart'
     as _widgetbook_kit_stories_core_kit_widgets_buttons_app_button_stories;
-import 'package:widgetbook_kit/stories/core_kit/widgets/buttons/app_fab_stories.dart'
-    as _widgetbook_kit_stories_core_kit_widgets_buttons_app_fab_stories;
 import 'package:widgetbook_kit/stories/core_kit/widgets/buttons/app_icon_button_stories.dart'
     as _widgetbook_kit_stories_core_kit_widgets_buttons_app_icon_button_stories;
 import 'package:widgetbook_kit/stories/core_kit/widgets/buttons/app_outlined_button_stories.dart'
@@ -25,6 +23,8 @@ import 'package:widgetbook_kit/stories/core_kit/widgets/buttons/app_text_button_
     as _widgetbook_kit_stories_core_kit_widgets_buttons_app_text_button_stories;
 import 'package:widgetbook_kit/stories/core_kit/widgets/inputs/app_checkbox_stories.dart'
     as _widgetbook_kit_stories_core_kit_widgets_inputs_app_checkbox_stories;
+import 'package:widgetbook_kit/stories/core_kit/widgets/surfaces/app_card_stories.dart'
+    as _widgetbook_kit_stories_core_kit_widgets_surfaces_app_card_stories;
 
 final directories = <_widgetbook.WidgetbookNode>[
   _widgetbook.WidgetbookFolder(
@@ -233,59 +233,6 @@ final directories = <_widgetbook.WidgetbookNode>[
                 builder:
                     _widgetbook_kit_stories_core_kit_widgets_buttons_app_button_stories
                         .appButtonWithIcons,
-              ),
-            ],
-          ),
-          _widgetbook.WidgetbookComponent(
-            name: 'AppFab',
-            useCases: [
-              _widgetbook.WidgetbookUseCase(
-                name: 'Collapsed vs Expanded',
-                builder:
-                    _widgetbook_kit_stories_core_kit_widgets_buttons_app_fab_stories
-                        .appFabCollapsedExpanded,
-              ),
-              _widgetbook.WidgetbookUseCase(
-                name: 'Default',
-                builder:
-                    _widgetbook_kit_stories_core_kit_widgets_buttons_app_fab_stories
-                        .appFabDefault,
-              ),
-              _widgetbook.WidgetbookUseCase(
-                name: 'Extended Variants',
-                builder:
-                    _widgetbook_kit_stories_core_kit_widgets_buttons_app_fab_stories
-                        .appFabExtendedVariants,
-              ),
-              _widgetbook.WidgetbookUseCase(
-                name: 'Hide on Scroll',
-                builder:
-                    _widgetbook_kit_stories_core_kit_widgets_buttons_app_fab_stories
-                        .appFabHideOnScroll,
-              ),
-              _widgetbook.WidgetbookUseCase(
-                name: 'Playground (Static)',
-                builder:
-                    _widgetbook_kit_stories_core_kit_widgets_buttons_app_fab_stories
-                        .appFabPlayground,
-              ),
-              _widgetbook.WidgetbookUseCase(
-                name: 'Sizes',
-                builder:
-                    _widgetbook_kit_stories_core_kit_widgets_buttons_app_fab_stories
-                        .appFabSizes,
-              ),
-              _widgetbook.WidgetbookUseCase(
-                name: 'States',
-                builder:
-                    _widgetbook_kit_stories_core_kit_widgets_buttons_app_fab_stories
-                        .appFabStates,
-              ),
-              _widgetbook.WidgetbookUseCase(
-                name: 'Theme Variations',
-                builder:
-                    _widgetbook_kit_stories_core_kit_widgets_buttons_app_fab_stories
-                        .appFabThemeVariations,
               ),
             ],
           ),
@@ -515,6 +462,58 @@ final directories = <_widgetbook.WidgetbookNode>[
                 builder:
                     _widgetbook_kit_stories_core_kit_widgets_inputs_app_checkbox_stories
                         .appCheckboxThemeVariations,
+              ),
+            ],
+          ),
+        ],
+      ),
+      _widgetbook.WidgetbookFolder(
+        name: 'surfaces',
+        children: [
+          _widgetbook.WidgetbookComponent(
+            name: 'AppCard',
+            useCases: [
+              _widgetbook.WidgetbookUseCase(
+                name: 'All Variants',
+                builder:
+                    _widgetbook_kit_stories_core_kit_widgets_surfaces_app_card_stories
+                        .appCardVariants,
+              ),
+              _widgetbook.WidgetbookUseCase(
+                name: 'Content Types',
+                builder:
+                    _widgetbook_kit_stories_core_kit_widgets_surfaces_app_card_stories
+                        .appCardContentTypes,
+              ),
+              _widgetbook.WidgetbookUseCase(
+                name: 'Custom Styling',
+                builder:
+                    _widgetbook_kit_stories_core_kit_widgets_surfaces_app_card_stories
+                        .appCardCustom,
+              ),
+              _widgetbook.WidgetbookUseCase(
+                name: 'Default',
+                builder:
+                    _widgetbook_kit_stories_core_kit_widgets_surfaces_app_card_stories
+                        .appCardDefault,
+              ),
+              _widgetbook.WidgetbookUseCase(
+                name: 'Elevation Levels',
+                builder:
+                    _widgetbook_kit_stories_core_kit_widgets_surfaces_app_card_stories
+                        .appCardElevations,
+              ),
+              _widgetbook.WidgetbookUseCase(
+                name: 'Interactive',
+                builder:
+                    _widgetbook_kit_stories_core_kit_widgets_surfaces_app_card_stories
+                        .appCardInteractive,
+              ),
+              _widgetbook.WidgetbookUseCase(
+                name: 'Interactive Playground',
+                builder:
+                    _widgetbook_kit_stories_core_kit_widgets_surfaces_app_card_stories
+                        .appCardPlayground,
               ),
             ],
           ),
