@@ -29,6 +29,8 @@ import 'package:widgetbook_kit/stories/core_kit/widgets/inputs/app_search_field_
     as _widgetbook_kit_stories_core_kit_widgets_inputs_app_search_field_stories;
 import 'package:widgetbook_kit/stories/core_kit/widgets/surfaces/app_card_stories.dart'
     as _widgetbook_kit_stories_core_kit_widgets_surfaces_app_card_stories;
+import 'package:widgetbook_kit/stories/core_kit/widgets/surfaces/app_section_header_stories.dart'
+    as _widgetbook_kit_stories_core_kit_widgets_surfaces_app_section_header_stories;
 import 'package:widgetbook_kit/stories/core_kit/widgets/surfaces/app_list_tile_stories.dart'
     as _widgetbook_kit_stories_core_kit_widgets_surfaces_app_list_tile_stories;
 
