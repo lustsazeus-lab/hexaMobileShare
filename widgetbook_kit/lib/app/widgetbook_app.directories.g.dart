@@ -25,6 +25,10 @@ import 'package:widgetbook_kit/stories/core_kit/widgets/buttons/app_text_button_
     as _widgetbook_kit_stories_core_kit_widgets_buttons_app_text_button_stories;
 import 'package:widgetbook_kit/stories/core_kit/widgets/inputs/app_checkbox_stories.dart'
     as _widgetbook_kit_stories_core_kit_widgets_inputs_app_checkbox_stories;
+import 'package:widgetbook_kit/stories/core_kit/widgets/inputs/app_switch_stories.dart'
+    as _widgetbook_kit_stories_core_kit_widgets_inputs_app_switch_stories;
+import 'package:widgetbook_kit/stories/core_kit/widgets/surfaces/app_card_stories.dart'
+    as _widgetbook_kit_stories_core_kit_widgets_surfaces_app_card_stories;
 import 'package:widgetbook_kit/stories/core_kit/widgets/inputs/app_search_field_stories.dart'
     as _widgetbook_kit_stories_core_kit_widgets_inputs_app_search_field_stories;
 import 'package:widgetbook_kit/stories/core_kit/widgets/surfaces/app_card_stories.dart'
