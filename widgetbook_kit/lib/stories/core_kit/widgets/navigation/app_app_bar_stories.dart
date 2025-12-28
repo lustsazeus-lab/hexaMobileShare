@@ -120,7 +120,7 @@ Widget centerAlignedTitle(BuildContext context) {
     label: 'Center Title',
     initialValue: true,
   );
-  final backgroundColor = context.knobs.color(
+  final backgroundColor = context.knobs.colorOrNull(
     label: 'Background Color',
     initialValue: Colors.blue,
   );
@@ -226,7 +226,7 @@ Widget transparentAppBar(BuildContext context) {
     min: 0.0,
     max: 1.0,
   );
-  final foregroundColor = context.knobs.color(
+  final foregroundColor = context.knobs.colorOrNull(
     label: 'Foreground Color',
     initialValue: Colors.white,
   );
@@ -269,11 +269,11 @@ Widget customColors(BuildContext context) {
     label: 'Title',
     initialValue: 'Custom Colors',
   );
-  final backgroundColor = context.knobs.color(
+  final backgroundColor = context.knobs.colorOrNull(
     label: 'Background Color',
-    initialValue: Colors.teal,
+    initialValue: Colors.blue,
   );
-  final foregroundColor = context.knobs.color(
+  final foregroundColor = context.knobs.colorOrNull(
     label: 'Foreground Color',
     initialValue: Colors.white,
   );

@@ -21,7 +21,7 @@ Widget appBottomSheetActionList(BuildContext context) {
     label: 'Enable Drag',
     initialValue: true,
   );
-  final barrierColor = context.knobs.color(
+  final barrierColor = context.knobs.colorOrNull(
     label: 'Barrier Color',
     initialValue: Colors.black54,
   );
