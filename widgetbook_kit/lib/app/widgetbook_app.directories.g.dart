@@ -25,8 +25,8 @@ import 'package:widgetbook_kit/stories/core_kit/widgets/buttons/app_outlined_but
     as _widgetbook_kit_stories_core_kit_widgets_buttons_app_outlined_button_stories;
 import 'package:widgetbook_kit/stories/core_kit/widgets/buttons/app_text_button_stories.dart'
     as _widgetbook_kit_stories_core_kit_widgets_buttons_app_text_button_stories;
-import 'package:widgetbook_kit/stories/core_kit/widgets/inputs/app_autocomplete_field_stories.dart'
-    as _widgetbook_kit_stories_core_kit_widgets_inputs_app_autocomplete_field_stories;
+import 'package:widgetbook_kit/stories/core_kit/widgets/chips/app_chip_stories.dart'
+    as _widgetbook_kit_stories_core_kit_widgets_chips_app_chip_stories;
 import 'package:widgetbook_kit/stories/core_kit/widgets/inputs/app_checkbox_stories.dart'
     as _widgetbook_kit_stories_core_kit_widgets_inputs_app_checkbox_stories;
 import 'package:widgetbook_kit/stories/core_kit/widgets/inputs/app_dropdown_stories.dart'
@@ -519,61 +519,55 @@ final directories = <_widgetbook.WidgetbookNode>[
         name: 'chips',
         children: [
           _widgetbook.WidgetbookComponent(
-            name: 'AppFilterChip',
+            name: 'AppChip',
             useCases: [
               _widgetbook.WidgetbookUseCase(
-                name: 'Basic Unselected',
+                name: 'Assist Chips',
                 builder:
-                    _widgetbook_kit_stories_core_kit_widgets_chips_app_filter_chip_stories
-                        .basicFilterChip,
+                    _widgetbook_kit_stories_core_kit_widgets_chips_app_chip_stories
+                        .assistChips,
+              ),
+              _widgetbook.WidgetbookUseCase(
+                name: 'Chip Group',
+                builder:
+                    _widgetbook_kit_stories_core_kit_widgets_chips_app_chip_stories
+                        .chipGroup,
               ),
               _widgetbook.WidgetbookUseCase(
                 name: 'Custom Colors',
                 builder:
-                    _widgetbook_kit_stories_core_kit_widgets_chips_app_filter_chip_stories
-                        .filterChipCustomColors,
+                    _widgetbook_kit_stories_core_kit_widgets_chips_app_chip_stories
+                        .customColorChips,
               ),
               _widgetbook.WidgetbookUseCase(
                 name: 'Disabled State',
                 builder:
-                    _widgetbook_kit_stories_core_kit_widgets_chips_app_filter_chip_stories
-                        .disabledFilterChip,
+                    _widgetbook_kit_stories_core_kit_widgets_chips_app_chip_stories
+                        .disabledChips,
               ),
               _widgetbook.WidgetbookUseCase(
-                name: 'Filter Group Demo',
+                name: 'Filter Chips',
                 builder:
-                    _widgetbook_kit_stories_core_kit_widgets_chips_app_filter_chip_stories
-                        .filterChipGroup,
+                    _widgetbook_kit_stories_core_kit_widgets_chips_app_chip_stories
+                        .filterChips,
+              ),
+              _widgetbook.WidgetbookUseCase(
+                name: 'Input Chips',
+                builder:
+                    _widgetbook_kit_stories_core_kit_widgets_chips_app_chip_stories
+                        .inputChips,
               ),
               _widgetbook.WidgetbookUseCase(
                 name: 'Interactive Playground',
                 builder:
-                    _widgetbook_kit_stories_core_kit_widgets_chips_app_filter_chip_stories
-                        .filterChipPlayground,
+                    _widgetbook_kit_stories_core_kit_widgets_chips_app_chip_stories
+                        .interactivePlayground,
               ),
               _widgetbook.WidgetbookUseCase(
-                name: 'Selected State',
+                name: 'Suggestion Chips',
                 builder:
-                    _widgetbook_kit_stories_core_kit_widgets_chips_app_filter_chip_stories
-                        .selectedFilterChip,
-              ),
-              _widgetbook.WidgetbookUseCase(
-                name: 'With Avatar',
-                builder:
-                    _widgetbook_kit_stories_core_kit_widgets_chips_app_filter_chip_stories
-                        .filterChipWithAvatar,
-              ),
-              _widgetbook.WidgetbookUseCase(
-                name: 'With Icon',
-                builder:
-                    _widgetbook_kit_stories_core_kit_widgets_chips_app_filter_chip_stories
-                        .filterChipWithIcon,
-              ),
-              _widgetbook.WidgetbookUseCase(
-                name: 'With Tooltip',
-                builder:
-                    _widgetbook_kit_stories_core_kit_widgets_chips_app_filter_chip_stories
-                        .withTooltipChip,
+                    _widgetbook_kit_stories_core_kit_widgets_chips_app_chip_stories
+                        .suggestionChips,
               ),
             ],
           ),
