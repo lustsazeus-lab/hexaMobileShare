@@ -27,3 +27,4 @@ export 'widgets/navigation/app_app_bar.dart';
 export 'widgets/navigation/app_drawer.dart';
 export 'widgets/chips/app_badge.dart';
 export 'widgets/chips/app_chip.dart';
+export 'widgets/chips/app_input_chip.dart';
