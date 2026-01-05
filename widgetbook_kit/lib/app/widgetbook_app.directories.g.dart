@@ -39,6 +39,8 @@ import 'package:widgetbook_kit/stories/core_kit/widgets/feedback/app_bottom_shee
     as _widgetbook_kit_stories_core_kit_widgets_feedback_app_bottom_sheet_stories;
 import 'package:widgetbook_kit/stories/core_kit/widgets/feedback/app_confirm_dialog_stories.dart'
     as _widgetbook_kit_stories_core_kit_widgets_feedback_app_confirm_dialog_stories;
+import 'package:widgetbook_kit/stories/core_kit/widgets/feedback/app_error_state_stories.dart'
+    as _widgetbook_kit_stories_core_kit_widgets_feedback_app_error_state_stories;
 import 'package:widgetbook_kit/stories/core_kit/widgets/feedback/app_dialog_stories.dart'
     as _widgetbook_kit_stories_core_kit_widgets_feedback_app_dialog_stories;
 import 'package:widgetbook_kit/stories/core_kit/widgets/feedback/app_snackbar_stories.dart'

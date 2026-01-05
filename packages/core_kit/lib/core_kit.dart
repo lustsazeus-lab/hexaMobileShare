@@ -21,6 +21,7 @@ export 'widgets/inputs/app_slider.dart';
 export 'widgets/inputs/app_text_field.dart';
 export 'widgets/surfaces/app_list_tile.dart';
 export 'widgets/surfaces/app_section_header.dart';
+export 'widgets/feedback/app_error_state.dart';
 export 'widgets/feedback/app_dialog.dart';
 export 'widgets/feedback/app_empty_state.dart';
 export 'widgets/feedback/app_snackbar.dart';
