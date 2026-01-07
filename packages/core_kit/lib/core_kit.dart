@@ -24,6 +24,7 @@ export 'widgets/surfaces/app_section_header.dart';
 export 'widgets/feedback/app_error_state.dart';
 export 'widgets/feedback/app_dialog.dart';
 export 'widgets/feedback/app_empty_state.dart';
+export 'widgets/feedback/app_loading_state.dart';
 export 'widgets/feedback/app_snackbar.dart';
 export 'widgets/navigation/app_app_bar.dart';
 export 'widgets/navigation/app_bottom_navigation_bar.dart';

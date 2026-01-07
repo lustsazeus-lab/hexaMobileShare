@@ -45,6 +45,8 @@ import 'package:widgetbook_kit/stories/core_kit/widgets/feedback/app_error_state
     as _widgetbook_kit_stories_core_kit_widgets_feedback_app_error_state_stories;
 import 'package:widgetbook_kit/stories/core_kit/widgets/feedback/app_dialog_stories.dart'
     as _widgetbook_kit_stories_core_kit_widgets_feedback_app_dialog_stories;
+import 'package:widgetbook_kit/stories/core_kit/widgets/feedback/app_loading_state_stories.dart'
+    as _widgetbook_kit_stories_core_kit_widgets_feedback_app_loading_state_stories;
 import 'package:widgetbook_kit/stories/core_kit/widgets/feedback/app_snackbar_stories.dart'
     as _widgetbook_kit_stories_core_kit_widgets_feedback_app_snackbar_stories;
 import 'package:widgetbook_kit/stories/core_kit/widgets/inputs/app_autocomplete_field_stories.dart'
@@ -1039,6 +1041,65 @@ final directories = <_widgetbook.WidgetbookNode>[
                 builder:
                     _widgetbook_kit_stories_core_kit_feedback_app_empty_state_stories
                         .withIllustration,
+              ),
+            ],
+          ),
+          _widgetbook.WidgetbookComponent(
+            name: 'AppLoadingState',
+            useCases: [
+              _widgetbook.WidgetbookUseCase(
+                name: 'Circular Spinner (Indeterminate)',
+                builder:
+                    _widgetbook_kit_stories_core_kit_widgets_feedback_app_loading_state_stories
+                        .circularSpinner,
+              ),
+              _widgetbook.WidgetbookUseCase(
+                name: 'Full-Screen Loading Overlay',
+                builder:
+                    _widgetbook_kit_stories_core_kit_widgets_feedback_app_loading_state_stories
+                        .fullScreenOverlay,
+              ),
+              _widgetbook.WidgetbookUseCase(
+                name: 'Inline Loading (Within Button)',
+                builder:
+                    _widgetbook_kit_stories_core_kit_widgets_feedback_app_loading_state_stories
+                        .inlineLoading,
+              ),
+              _widgetbook.WidgetbookUseCase(
+                name: 'Interactive Playground',
+                builder:
+                    _widgetbook_kit_stories_core_kit_widgets_feedback_app_loading_state_stories
+                        .interactivePlayground,
+              ),
+              _widgetbook.WidgetbookUseCase(
+                name: 'Linear Progress Bar (Determinate)',
+                builder:
+                    _widgetbook_kit_stories_core_kit_widgets_feedback_app_loading_state_stories
+                        .linearProgressBar,
+              ),
+              _widgetbook.WidgetbookUseCase(
+                name: 'Loading with Cancel Button',
+                builder:
+                    _widgetbook_kit_stories_core_kit_widgets_feedback_app_loading_state_stories
+                        .loadingWithCancel,
+              ),
+              _widgetbook.WidgetbookUseCase(
+                name: 'Loading with Custom Message',
+                builder:
+                    _widgetbook_kit_stories_core_kit_widgets_feedback_app_loading_state_stories
+                        .loadingWithMessage,
+              ),
+              _widgetbook.WidgetbookUseCase(
+                name: 'Loading with Progress Percentage',
+                builder:
+                    _widgetbook_kit_stories_core_kit_widgets_feedback_app_loading_state_stories
+                        .loadingWithPercentage,
+              ),
+              _widgetbook.WidgetbookUseCase(
+                name: 'Skeleton Screen (List Items)',
+                builder:
+                    _widgetbook_kit_stories_core_kit_widgets_feedback_app_loading_state_stories
+                        .skeletonScreen,
               ),
             ],
           ),
