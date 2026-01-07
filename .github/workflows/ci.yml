@@ -35,6 +35,12 @@ jobs:
           channel: 'stable'
           cache: true
 
+      - name: Install Melos
+        run: dart pub global activate melos
+
+      - name: Bootstrap packages
+        run: melos bootstrap
+
       - name: Check Dart formatting
         run: dart format --set-exit-if-changed .
 
@@ -59,6 +65,10 @@ jobs:
 
       - name: Bootstrap packages
         run: melos bootstrap
+
+      - name: Generate Widgetbook files
+        working-directory: widgetbook_kit
+        run: flutter pub run build_runner build --delete-conflicting-outputs
 
       - name: Run Flutter analyze
         run: melos run analyze
