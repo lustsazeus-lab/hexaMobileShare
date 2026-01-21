@@ -9,14 +9,16 @@ export 'theme/app_spacing.dart';
 export 'theme/app_radius.dart';
 export 'theme/app_shadows.dart';
 
+// Typography exports
+export 'typography/app_text_styles.dart';
+
 // Layout exports
 export 'layout/gap.dart';
-
-// Typography exports
-export 'typography/app_h1.dart';
-export 'typography/app_h2.dart';
-export 'typography/app_h3.dart';
-export 'typography/app_caption.dart';
+export 'layout/responsive_padding.dart';
+export 'layout/core_scaffold.dart';
+export 'layout/page_container.dart';
+export 'layout/app_scroll_view.dart';
+export 'layout/app_sliver_scaffold.dart';
 
 // Widget exports
 
