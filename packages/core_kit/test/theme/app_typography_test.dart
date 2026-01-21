@@ -4,6 +4,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:core_kit/theme/app_typography.dart';
+import 'package:core_kit/theme/app_color_scheme.dart';
 
 void main() {
   group('AppTypography', () {
@@ -351,8 +352,14 @@ void main() {
             home: Builder(
               builder: (context) {
                 final successStyle = AppTypography.successStyle(context);
+                final expectedColor = Theme.of(context).colorScheme.success;
 
-                return Text('Success message', style: successStyle);
+                return Column(
+                  children: [
+                    Text('Success message', style: successStyle),
+                    Text('Expected', style: TextStyle(color: expectedColor)),
+                  ],
+                );
               },
             ),
           ),
@@ -361,7 +368,8 @@ void main() {
         await tester.pumpAndSettle();
 
         final text = tester.widget<Text>(find.text('Success message'));
-        expect(text.style!.color, equals(const Color(0xFF4CAF50)));
+        final expectedText = tester.widget<Text>(find.text('Expected'));
+        expect(text.style!.color, equals(expectedText.style!.color));
       });
 
       testWidgets('warningStyle() returns warning colored text', (
@@ -372,8 +380,14 @@ void main() {
             home: Builder(
               builder: (context) {
                 final warningStyle = AppTypography.warningStyle(context);
+                final expectedColor = Theme.of(context).colorScheme.warning;
 
-                return Text('Warning message', style: warningStyle);
+                return Column(
+                  children: [
+                    Text('Warning message', style: warningStyle),
+                    Text('Expected', style: TextStyle(color: expectedColor)),
+                  ],
+                );
               },
             ),
           ),
@@ -382,7 +396,8 @@ void main() {
         await tester.pumpAndSettle();
 
         final text = tester.widget<Text>(find.text('Warning message'));
-        expect(text.style!.color, equals(const Color(0xFFFF9800)));
+        final expectedText = tester.widget<Text>(find.text('Expected'));
+        expect(text.style!.color, equals(expectedText.style!.color));
       });
 
       testWidgets('hintStyle() returns styled hint text', (tester) async {
