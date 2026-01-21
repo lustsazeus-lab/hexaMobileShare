@@ -472,7 +472,6 @@ class _AppDrawerDestinationTile extends StatelessWidget {
                               destination.badgeLabel!,
                               style: theme.textTheme.labelSmall?.copyWith(
                                 color: colorScheme.onError,
-                                fontSize: 11.0,
                                 fontWeight: FontWeight.w500,
                               ),
                               textAlign: TextAlign.center,

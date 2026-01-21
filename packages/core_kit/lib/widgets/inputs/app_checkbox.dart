@@ -3,6 +3,8 @@
 
 import 'package:flutter/material.dart';
 
+import '../../theme/app_spacing.dart';
+
 /// A Material Design 3 checkbox widget that provides consistent checkbox
 /// experience across the application.
 ///
@@ -203,7 +205,7 @@ class AppCheckbox extends StatelessWidget {
               : null,
           borderRadius: BorderRadius.circular(4),
           child: Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(AppSpacing.sm),
             child: Row(
               mainAxisSize: MainAxisSize.min,
               children: [
@@ -243,7 +245,11 @@ class AppCheckbox extends StatelessWidget {
         // Error text (if provided)
         if (error && errorText != null) ...[
           Padding(
-            padding: const EdgeInsets.only(left: 56.0, top: 4.0),
+            padding: const EdgeInsets.only(
+              left:
+                  56.0, // Checkbox width (40dp) + padding (8dp) + spacing (8dp)
+              top: AppSpacing.xs,
+            ),
             child: Text(
               errorText!,
               style: theme.textTheme.bodySmall?.copyWith(

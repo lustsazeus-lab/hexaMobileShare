@@ -4,6 +4,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import '../../theme/app_spacing.dart';
+
 /// Password strength level enumeration
 enum PasswordStrength {
   /// Weak password (length < 8 or simple patterns)
@@ -269,7 +271,10 @@ class _AppPasswordFieldState extends State<AppPasswordField> {
             _controller.text.isNotEmpty &&
             widget.errorText == null)
           Padding(
-            padding: const EdgeInsets.only(top: 8.0, left: 12.0),
+            padding: const EdgeInsets.only(
+              top: AppSpacing.sm,
+              left: AppSpacing.sm,
+            ),
             child: Row(
               children: [
                 // Strength bars
@@ -277,7 +282,7 @@ class _AppPasswordFieldState extends State<AppPasswordField> {
                   Expanded(
                     child: Container(
                       height: 4,
-                      margin: EdgeInsets.only(right: i < 2 ? 4.0 : 0),
+                      margin: EdgeInsets.only(right: i < 2 ? AppSpacing.xs : 0),
                       decoration: BoxDecoration(
                         color: i <= _strength.index
                             ? _getStrengthColor(context)

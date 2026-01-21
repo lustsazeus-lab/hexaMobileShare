@@ -3,6 +3,8 @@
 
 import 'package:flutter/material.dart';
 
+import 'app_color_scheme.dart';
+
 /// Material Design 3 typography scale for the application.
 ///
 /// Provides a complete type system following the Material Design 3 specifications.
@@ -425,7 +427,7 @@ class AppTypography {
   /// ```
   static TextStyle successStyle(BuildContext context) {
     return Theme.of(context).textTheme.bodySmall!.copyWith(
-      color: const Color(0xFF4CAF50), // Material Green
+      color: Theme.of(context).colorScheme.success,
     );
   }
 
@@ -442,7 +444,7 @@ class AppTypography {
   /// ```
   static TextStyle warningStyle(BuildContext context) {
     return Theme.of(context).textTheme.bodySmall!.copyWith(
-      color: const Color(0xFFFF9800), // Material Orange
+      color: Theme.of(context).colorScheme.warning,
     );
   }
 

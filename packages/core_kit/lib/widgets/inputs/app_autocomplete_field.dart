@@ -4,6 +4,8 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 
+import '../../theme/app_spacing.dart';
+
 /// A Material Design 3 autocomplete text field component that displays
 /// intelligent suggestions as users type.
 ///
@@ -483,7 +485,7 @@ class _AppAutocompleteFieldState<T extends Object>
   Widget? _buildSuffixIcon() {
     if (_isLoading) {
       return const Padding(
-        padding: EdgeInsets.all(12.0),
+        padding: EdgeInsets.all(AppSpacing.sm),
         child: SizedBox(
           width: 20,
           height: 20,

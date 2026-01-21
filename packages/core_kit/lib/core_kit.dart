@@ -70,3 +70,10 @@ export 'widgets/chips/app_tag.dart';
 
 // Typography
 export 'typography/app_overline.dart';
+export 'typography/app_text_theme.dart';
+export 'typography/app_h1.dart';
+export 'typography/app_h2.dart';
+export 'typography/app_h3.dart';
+export 'typography/app_caption.dart';
+export 'typography/app_body_text.dart';
+export 'typography/app_label.dart';
