@@ -12,6 +12,9 @@ export 'theme/app_shadows.dart';
 // Typography exports
 export 'typography/app_text_styles.dart';
 
+// Icons exports
+export 'icons/app_icons.dart';
+
 // Layout exports
 export 'layout/gap.dart';
 export 'layout/responsive_padding.dart';

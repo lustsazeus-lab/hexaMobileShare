@@ -450,13 +450,25 @@ class _ToastWidgetState extends State<_ToastWidget>
   Color _getBackgroundColor(ToastType type, ColorScheme colorScheme) {
     switch (type) {
       case ToastType.success:
-        return const Color(0xFF2E7D32); // Green 800
+        return Color.alphaBlend(
+          colorScheme.primary.withAlpha(51), // 20% opacity
+          colorScheme.surface,
+        );
       case ToastType.error:
-        return const Color(0xFFC62828); // Red 800
+        return Color.alphaBlend(
+          colorScheme.error.withAlpha(51), // 20% opacity
+          colorScheme.surface,
+        );
       case ToastType.warning:
-        return const Color(0xFFF57C00); // Orange 800
+        return Color.alphaBlend(
+          Color(0xFFF57C00).withAlpha(51), // Orange with 20% opacity
+          colorScheme.surface,
+        );
       case ToastType.info:
-        return const Color(0xFF1976D2); // Blue 700
+        return Color.alphaBlend(
+          colorScheme.primary.withAlpha(51), // 20% opacity
+          colorScheme.surface,
+        );
       case ToastType.neutral:
         return colorScheme.surfaceContainerHighest;
     }
@@ -466,10 +478,13 @@ class _ToastWidgetState extends State<_ToastWidget>
   Color _getTextColor(ToastType type, ColorScheme colorScheme) {
     switch (type) {
       case ToastType.success:
+        return colorScheme.primary;
       case ToastType.error:
+        return colorScheme.error;
       case ToastType.warning:
+        return Color(0xFFF57C00); // Orange for visibility
       case ToastType.info:
-        return Colors.white;
+        return colorScheme.primary;
       case ToastType.neutral:
         return colorScheme.onSurface;
     }
