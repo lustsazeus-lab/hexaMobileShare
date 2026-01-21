@@ -9,6 +9,9 @@ export 'theme/app_spacing.dart';
 export 'theme/app_radius.dart';
 export 'theme/app_shadows.dart';
 
+// Layout exports
+export 'layout/gap.dart';
+
 // Typography exports
 export 'typography/app_h1.dart';
 export 'typography/app_h2.dart';
@@ -62,3 +65,6 @@ export 'widgets/chips/app_chip.dart';
 export 'widgets/chips/app_filter_chip.dart';
 export 'widgets/chips/app_input_chip.dart';
 export 'widgets/chips/app_tag.dart';
+
+// Typography
+export 'typography/app_overline.dart';
