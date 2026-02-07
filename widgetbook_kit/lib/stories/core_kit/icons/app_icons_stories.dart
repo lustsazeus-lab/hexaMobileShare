@@ -10,29 +10,22 @@ import 'package:core_kit/core_kit.dart';
 @widgetbook.UseCase(name: 'Interactive Playground', type: AppIcons)
 Widget appIconsPlayground(BuildContext context) {
   // Category selector
-  final category = context.knobs.list(
+  final category = context.knobs.object.dropdown<String>(
     label: 'Icon Category',
-    options: const [
-      'Navigation',
-      'Actions',
-      'Status',
-      'Content',
-      'Communication',
-      'UI Controls',
-    ],
+    options: AppIcons.categoricalIcons.keys.toList(),
+    labelBuilder: (value) => value,
   );
 
   // Icon selector based on category
   final iconName = _getIconsForCategory(category, context);
 
-  // Size selector - using AppSpacing system
+  // Size selector - using AppIconSizes system (MD3 standard)
   final sizeOptions = const [
-    ('xs', AppSpacing.xs),
-    ('sm', AppSpacing.sm),
-    ('md', AppSpacing.md),
-    ('lg', AppSpacing.lg),
-    ('xl', AppSpacing.xl),
-    ('xxl', AppSpacing.xxl),
+    ('xs (16dp)', AppIconSizes.xs),
+    ('sm (20dp)', AppIconSizes.sm),
+    ('md (24dp)', AppIconSizes.md),
+    ('lg (32dp)', AppIconSizes.lg),
+    ('xl (48dp)', AppIconSizes.xl),
   ];
 
   final selectedSizeLabel = context.knobs.object.dropdown(
@@ -55,16 +48,16 @@ Widget appIconsPlayground(BuildContext context) {
   );
 
   // Get the IconData based on selection
-  final icon = _getIconData(iconName);
+  final icon = AppIcons.allIcons[iconName] ?? AppIcons.home;
 
   return Center(
     child: Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Icon(icon, size: size, color: useCustomColor ? customColor : null),
-        SizedBox(height: AppSpacing.md),
-        Text(iconName, style: Theme.of(context).textTheme.bodyMedium),
-        Text('${size.toInt()}dp', style: Theme.of(context).textTheme.bodySmall),
+        VGap.md(),
+        AppBodyText.medium(iconName),
+        AppBodyText.small('${size.toInt()}dp'),
       ],
     ),
   );
@@ -73,116 +66,86 @@ Widget appIconsPlayground(BuildContext context) {
 /// Navigation Icons - Common navigation and wayfinding icons
 @widgetbook.UseCase(name: 'Navigation Icons', type: AppIcons)
 Widget navigationIcons(BuildContext context) {
-  final icons = [
-    ('home', AppIcons.home),
-    ('search', AppIcons.search),
-    ('menu', AppIcons.menu),
-    ('back', AppIcons.back),
-    ('close', AppIcons.close),
-    ('navigateNext', AppIcons.navigateNext),
-    ('navigateBefore', AppIcons.navigateBefore),
-    ('arrowForward', AppIcons.arrowForward),
-    ('arrowBack', AppIcons.arrowBack),
-    ('refresh', AppIcons.refresh),
-    ('moreVert', AppIcons.moreVert),
-    ('moreHoriz', AppIcons.moreHoriz),
-  ];
-
-  return _buildIconGrid(context, icons, 'Navigation Icons');
+  return _buildCategorizedIconGrid(context, 'Navigation');
 }
 
 /// Action Icons - User actions and commands
 @widgetbook.UseCase(name: 'Action Icons', type: AppIcons)
 Widget actionIcons(BuildContext context) {
-  final icons = [
-    ('add', AppIcons.add),
-    ('edit', AppIcons.edit),
-    ('delete', AppIcons.delete),
-    ('share', AppIcons.share),
-    ('favorite', AppIcons.favorite),
-    ('favorited', AppIcons.favorited),
-    ('download', AppIcons.download),
-    ('upload', AppIcons.upload),
-    ('save', AppIcons.save),
-    ('copy', AppIcons.copy),
-    ('cut', AppIcons.cut),
-    ('paste', AppIcons.paste),
-    ('undo', AppIcons.undo),
-    ('redo', AppIcons.redo),
-    ('print', AppIcons.print),
-    ('attach', AppIcons.attach),
-    ('link', AppIcons.link),
-    ('send', AppIcons.send),
-  ];
-
-  return _buildIconGrid(context, icons, 'Action Icons');
+  return _buildCategorizedIconGrid(context, 'Actions');
 }
 
 /// Status Icons - Status indicators with semantic colors
 @widgetbook.UseCase(name: 'Status Icons', type: AppIcons)
 Widget statusIcons(BuildContext context) {
   final colorScheme = Theme.of(context).colorScheme;
+  final icons = AppIcons.categoricalIcons['Status'] ?? {};
 
   return Padding(
     padding: AppSpacing.edgeInsetsAllMd,
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text('Status Icons', style: Theme.of(context).textTheme.headlineSmall),
-        SizedBox(height: AppSpacing.md),
+        AppH3('Status Icons'),
+        VGap.md(),
         Expanded(
           child: GridView.count(
             crossAxisCount: 3,
-            mainAxisSpacing: 16,
-            crossAxisSpacing: 16,
+            mainAxisSpacing: AppSpacing.md,
+            crossAxisSpacing: AppSpacing.md,
             children: [
               _buildStatusIconCard(
                 context,
                 'check',
-                AppIcons.check,
+                icons['check']!,
                 colorScheme.primary,
               ),
               _buildStatusIconCard(
                 context,
                 'success',
-                AppIcons.success,
+                icons['success']!,
                 Colors.green,
               ),
               _buildStatusIconCard(
                 context,
                 'error',
-                AppIcons.error,
+                icons['error']!,
                 colorScheme.error,
               ),
               _buildStatusIconCard(
                 context,
                 'warning',
-                AppIcons.warning,
+                icons['warning']!,
                 Colors.orange,
               ),
-              _buildStatusIconCard(context, 'info', AppIcons.info, Colors.blue),
+              _buildStatusIconCard(
+                context,
+                'info',
+                icons['info']!,
+                Colors.blue,
+              ),
               _buildStatusIconCard(
                 context,
                 'help',
-                AppIcons.help,
+                icons['help']!,
                 colorScheme.secondary,
               ),
               _buildStatusIconCard(
                 context,
                 'verified',
-                AppIcons.verified,
+                icons['verified']!,
                 Colors.blue,
               ),
               _buildStatusIconCard(
                 context,
                 'pending',
-                AppIcons.pending,
+                icons['pending']!,
                 Colors.amber,
               ),
               _buildStatusIconCard(
                 context,
                 'blocked',
-                AppIcons.blocked,
+                icons['blocked']!,
                 colorScheme.error,
               ),
             ],
@@ -196,69 +159,30 @@ Widget statusIcons(BuildContext context) {
 /// Content Icons - Content types and media
 @widgetbook.UseCase(name: 'Content Icons', type: AppIcons)
 Widget contentIcons(BuildContext context) {
-  final icons = [
-    ('image', AppIcons.image),
-    ('video', AppIcons.video),
-    ('audio', AppIcons.audio),
-    ('document', AppIcons.document),
-    ('folder', AppIcons.folder),
-    ('attachment', AppIcons.attachment),
-    ('code', AppIcons.code),
-    ('text', AppIcons.text),
-    ('file', AppIcons.file),
-    ('camera', AppIcons.camera),
-    ('photo', AppIcons.photo),
-  ];
-
-  return _buildIconGrid(context, icons, 'Content Icons');
+  return _buildCategorizedIconGrid(context, 'Content');
 }
 
 /// Communication Icons - Communication and messaging
 @widgetbook.UseCase(name: 'Communication Icons', type: AppIcons)
 Widget communicationIcons(BuildContext context) {
-  final icons = [
-    ('email', AppIcons.email),
-    ('chat', AppIcons.chat),
-    ('call', AppIcons.call),
-    ('notifications', AppIcons.notifications),
-    ('inbox', AppIcons.inbox),
-    ('archive', AppIcons.archive),
-    ('markAsRead', AppIcons.markAsRead),
-    ('unread', AppIcons.unread),
-  ];
-
-  return _buildIconGrid(context, icons, 'Communication Icons');
+  return _buildCategorizedIconGrid(context, 'Communication');
 }
 
 /// UI Control Icons - Interface controls and toggles
 @widgetbook.UseCase(name: 'UI Control Icons', type: AppIcons)
 Widget uiControlIcons(BuildContext context) {
-  final icons = [
-    ('expandMore', AppIcons.expandMore),
-    ('expandLess', AppIcons.expandLess),
-    ('filter', AppIcons.filter),
-    ('sort', AppIcons.sort),
-    ('viewList', AppIcons.viewList),
-    ('viewGrid', AppIcons.viewGrid),
-    ('settings', AppIcons.settings),
-    ('visibility', AppIcons.visibility),
-    ('visibilityOff', AppIcons.visibilityOff),
-    ('tune', AppIcons.tune),
-  ];
-
-  return _buildIconGrid(context, icons, 'UI Control Icons');
+  return _buildCategorizedIconGrid(context, 'UI Controls');
 }
 
 /// Icon Sizes Reference - Demonstrates proper Material Design 3 icon sizing
 @widgetbook.UseCase(name: 'Icon Sizes Reference', type: AppIcons)
 Widget iconSizesReference(BuildContext context) {
   final sizes = const [
-    ('xs', AppSpacing.xs),
-    ('sm', AppSpacing.sm),
-    ('md', AppSpacing.md),
-    ('lg', AppSpacing.lg),
-    ('xl', AppSpacing.xl),
-    ('xxl', AppSpacing.xxl),
+    ('xs', AppIconSizes.xs),
+    ('sm', AppIconSizes.sm),
+    ('md', AppIconSizes.md),
+    ('lg', AppIconSizes.lg),
+    ('xl', AppIconSizes.xl),
   ];
 
   return Padding(
@@ -266,16 +190,10 @@ Widget iconSizesReference(BuildContext context) {
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          'Material Design 3 Icon Sizes',
-          style: Theme.of(context).textTheme.headlineSmall,
-        ),
-        SizedBox(height: AppSpacing.sm),
-        Text(
-          'Same icon (AppIcons.home) at different sizes',
-          style: Theme.of(context).textTheme.bodyMedium,
-        ),
-        SizedBox(height: AppSpacing.lg),
+        AppH3('Material Design 3 Icon Sizes'),
+        VGap.sm(),
+        AppBodyText.medium('Same icon (AppIcons.home) at different sizes'),
+        VGap.lg(),
         Expanded(
           child: ListView.separated(
             itemCount: sizes.length,
@@ -290,22 +208,16 @@ Widget iconSizesReference(BuildContext context) {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        Text(
-                          'AppSpacing.$label',
-                          style: Theme.of(context).textTheme.titleMedium,
-                        ),
-                        Text(
-                          '${size.toInt()}dp',
-                          style: Theme.of(context).textTheme.bodySmall
-                              ?.copyWith(
-                                color: Theme.of(context).colorScheme.outline,
-                              ),
+                        AppLabel.medium('AppIconSizes.$label'),
+                        AppCaption(
+                          text: '${size.toInt()}dp',
+                          color: Theme.of(context).colorScheme.outline,
                         ),
                       ],
                     ),
                   ),
                   Icon(AppIcons.home, size: size),
-                  SizedBox(width: AppSpacing.md),
+                  HGap.md(),
                   Text(
                     'AppIcons.home',
                     style: Theme.of(
@@ -326,24 +238,23 @@ Widget iconSizesReference(BuildContext context) {
 // HELPER FUNCTIONS
 // ============================================================================
 
-Widget _buildIconGrid(
-  BuildContext context,
-  List<(String, IconData)> icons,
-  String title,
-) {
+Widget _buildCategorizedIconGrid(BuildContext context, String category) {
+  final iconMap = AppIcons.categoricalIcons[category] ?? {};
+  final icons = iconMap.entries.map((e) => (e.key, e.value)).toList();
+
   return Padding(
     padding: AppSpacing.edgeInsetsAllMd,
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(title, style: Theme.of(context).textTheme.headlineSmall),
-        SizedBox(height: AppSpacing.md),
+        AppH3('$category Icons'),
+        VGap.md(),
         Expanded(
           child: GridView.builder(
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 3,
-              mainAxisSpacing: 16,
-              crossAxisSpacing: 16,
+              mainAxisSpacing: AppSpacing.md,
+              crossAxisSpacing: AppSpacing.md,
               childAspectRatio: 1,
             ),
             itemCount: icons.length,
@@ -365,11 +276,10 @@ Widget _buildIconCard(BuildContext context, String name, IconData icon) {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(icon, size: 32),
-          SizedBox(height: AppSpacing.sm),
-          Text(
+          Icon(icon, size: AppIconSizes.lg),
+          VGap.sm(),
+          AppBodyText.small(
             name,
-            style: Theme.of(context).textTheme.bodySmall,
             textAlign: TextAlign.center,
             overflow: TextOverflow.ellipsis,
             maxLines: 2,
@@ -392,11 +302,10 @@ Widget _buildStatusIconCard(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(icon, size: 32, color: color),
-          const SizedBox(height: 8),
-          Text(
+          Icon(icon, size: AppIconSizes.lg, color: color),
+          VGap.sm(),
+          AppBodyText.small(
             name,
-            style: Theme.of(context).textTheme.bodySmall,
             textAlign: TextAlign.center,
             overflow: TextOverflow.ellipsis,
             maxLines: 2,
@@ -408,169 +317,11 @@ Widget _buildStatusIconCard(
 }
 
 String _getIconsForCategory(String category, BuildContext context) {
-  final options = switch (category) {
-    'Navigation' => const [
-      'home',
-      'search',
-      'menu',
-      'back',
-      'close',
-      'navigateNext',
-      'navigateBefore',
-      'arrowForward',
-      'arrowBack',
-      'refresh',
-      'moreVert',
-      'moreHoriz',
-    ],
-    'Actions' => const [
-      'add',
-      'edit',
-      'delete',
-      'share',
-      'favorite',
-      'favorited',
-      'download',
-      'upload',
-      'save',
-      'copy',
-      'cut',
-      'paste',
-      'undo',
-      'redo',
-      'print',
-      'attach',
-      'link',
-      'send',
-    ],
-    'Status' => const [
-      'check',
-      'error',
-      'warning',
-      'info',
-      'help',
-      'verified',
-      'pending',
-      'blocked',
-      'success',
-    ],
-    'Content' => const [
-      'image',
-      'video',
-      'audio',
-      'document',
-      'folder',
-      'attachment',
-      'code',
-      'text',
-      'file',
-      'camera',
-      'photo',
-    ],
-    'Communication' => const [
-      'email',
-      'chat',
-      'call',
-      'notifications',
-      'inbox',
-      'archive',
-      'markAsRead',
-      'unread',
-    ],
-    'UI Controls' => const [
-      'expandMore',
-      'expandLess',
-      'filter',
-      'sort',
-      'viewList',
-      'viewGrid',
-      'settings',
-      'visibility',
-      'visibilityOff',
-      'tune',
-    ],
-    _ => const ['home'],
-  };
-
-  return context.knobs.list(label: 'Icon', options: options);
-}
-
-IconData _getIconData(String name) {
-  return switch (name) {
-    // Navigation
-    'home' => AppIcons.home,
-    'search' => AppIcons.search,
-    'menu' => AppIcons.menu,
-    'back' => AppIcons.back,
-    'close' => AppIcons.close,
-    'navigateNext' => AppIcons.navigateNext,
-    'navigateBefore' => AppIcons.navigateBefore,
-    'arrowForward' => AppIcons.arrowForward,
-    'arrowBack' => AppIcons.arrowBack,
-    'refresh' => AppIcons.refresh,
-    'moreVert' => AppIcons.moreVert,
-    'moreHoriz' => AppIcons.moreHoriz,
-    // Actions
-    'add' => AppIcons.add,
-    'edit' => AppIcons.edit,
-    'delete' => AppIcons.delete,
-    'share' => AppIcons.share,
-    'favorite' => AppIcons.favorite,
-    'favorited' => AppIcons.favorited,
-    'download' => AppIcons.download,
-    'upload' => AppIcons.upload,
-    'save' => AppIcons.save,
-    'copy' => AppIcons.copy,
-    'cut' => AppIcons.cut,
-    'paste' => AppIcons.paste,
-    'undo' => AppIcons.undo,
-    'redo' => AppIcons.redo,
-    'print' => AppIcons.print,
-    'attach' => AppIcons.attach,
-    'link' => AppIcons.link,
-    'send' => AppIcons.send,
-    // Status
-    'check' => AppIcons.check,
-    'error' => AppIcons.error,
-    'warning' => AppIcons.warning,
-    'info' => AppIcons.info,
-    'help' => AppIcons.help,
-    'verified' => AppIcons.verified,
-    'pending' => AppIcons.pending,
-    'blocked' => AppIcons.blocked,
-    'success' => AppIcons.success,
-    // Content
-    'image' => AppIcons.image,
-    'video' => AppIcons.video,
-    'audio' => AppIcons.audio,
-    'document' => AppIcons.document,
-    'folder' => AppIcons.folder,
-    'attachment' => AppIcons.attachment,
-    'code' => AppIcons.code,
-    'text' => AppIcons.text,
-    'file' => AppIcons.file,
-    'camera' => AppIcons.camera,
-    'photo' => AppIcons.photo,
-    // Communication
-    'email' => AppIcons.email,
-    'chat' => AppIcons.chat,
-    'call' => AppIcons.call,
-    'notifications' => AppIcons.notifications,
-    'inbox' => AppIcons.inbox,
-    'archive' => AppIcons.archive,
-    'markAsRead' => AppIcons.markAsRead,
-    'unread' => AppIcons.unread,
-    // UI Controls
-    'expandMore' => AppIcons.expandMore,
-    'expandLess' => AppIcons.expandLess,
-    'filter' => AppIcons.filter,
-    'sort' => AppIcons.sort,
-    'viewList' => AppIcons.viewList,
-    'viewGrid' => AppIcons.viewGrid,
-    'settings' => AppIcons.settings,
-    'visibility' => AppIcons.visibility,
-    'visibilityOff' => AppIcons.visibilityOff,
-    'tune' => AppIcons.tune,
-    _ => AppIcons.home,
-  };
+  final options =
+      AppIcons.categoricalIcons[category]?.keys.toList() ?? ['home'];
+  return context.knobs.object.dropdown<String>(
+    label: 'Icon',
+    options: options,
+    labelBuilder: (value) => value,
+  );
 }

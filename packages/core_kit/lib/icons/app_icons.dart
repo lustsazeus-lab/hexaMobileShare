@@ -398,4 +398,160 @@ class AppIcons {
   ///
   /// Usage: Adjustment controls, fine-tune settings, customize
   static const IconData tune = Icons.tune;
+
+  // ============================================================================
+  // CATEGORICAL MAPPINGS (For Dynamic Discovery/Stories)
+  // ============================================================================
+
+  /// All icons grouped by their semantic category.
+  static const Map<String, Map<String, IconData>> categoricalIcons = {
+    'Navigation': {
+      'home': home,
+      'search': search,
+      'menu': menu,
+      'back': back,
+      'close': close,
+      'navigateNext': navigateNext,
+      'navigateBefore': navigateBefore,
+      'arrowForward': arrowForward,
+      'arrowBack': arrowBack,
+      'refresh': refresh,
+      'moreVert': moreVert,
+      'moreHoriz': moreHoriz,
+    },
+    'Actions': {
+      'add': add,
+      'edit': edit,
+      'delete': delete,
+      'share': share,
+      'favorite': favorite,
+      'favorited': favorited,
+      'download': download,
+      'upload': upload,
+      'save': save,
+      'copy': copy,
+      'cut': cut,
+      'paste': paste,
+      'undo': undo,
+      'redo': redo,
+      'print': print,
+      'attach': attach,
+      'link': link,
+      'send': send,
+    },
+    'Status': {
+      'check': check,
+      'error': error,
+      'warning': warning,
+      'info': info,
+      'help': help,
+      'verified': verified,
+      'pending': pending,
+      'blocked': blocked,
+      'success': success,
+    },
+    'Content': {
+      'image': image,
+      'video': video,
+      'audio': audio,
+      'document': document,
+      'folder': folder,
+      'attachment': attachment,
+      'code': code,
+      'text': text,
+      'file': file,
+      'camera': camera,
+      'photo': photo,
+    },
+    'Communication': {
+      'email': email,
+      'chat': chat,
+      'call': call,
+      'notifications': notifications,
+      'inbox': inbox,
+      'archive': archive,
+      'markAsRead': markAsRead,
+      'unread': unread,
+    },
+    'UI Controls': {
+      'expandMore': expandMore,
+      'expandLess': expandLess,
+      'filter': filter,
+      'sort': sort,
+      'viewList': viewList,
+      'viewGrid': viewGrid,
+      'settings': settings,
+      'visibility': visibility,
+      'visibilityOff': visibilityOff,
+      'tune': tune,
+    },
+  };
+
+  /// A flat map of all icon names to their IconData.
+  static final Map<String, IconData> allIcons = {
+    for (final category in categoricalIcons.values) ...category,
+  };
+}
+
+class AppIconSizes {
+  const AppIconSizes._();
+
+  // ===========================================================================
+  // CORE ICON SIZES (MD3 Standard)
+  // ===========================================================================
+
+  /// Extra small icons for dense UIs: 16dp
+  ///
+  /// Usage: Inline text icons, very dense UIs, chips, status indicators
+  static const double xs = 16.0;
+
+  /// Small icons for compact components: 20dp
+  ///
+  /// Usage: Toast icons, small badges, compact buttons, chips
+  static const double sm = 20.0;
+
+  /// Standard MD3 icon size: 24dp
+  ///
+  /// Usage: Icon buttons, navigation bars, app bars, list tiles,
+  /// text field icons, snackbars, FABs (small/default)
+  /// Reference: This is the default size for most MD3 components
+  static const double md = 24.0;
+
+  /// Large icons for prominent actions: 32dp
+  ///
+  /// Usage: Large FAB icons, prominent action buttons, card icons
+  static const double lg = 32.0;
+
+  /// Extra large icons for state screens: 48dp
+  ///
+  /// Usage: Empty states, error states, loading states, onboarding
+  static const double xl = 48.0;
+
+  // ===========================================================================
+  // SEMANTIC ALIASES (Context-Specific)
+  // ===========================================================================
+
+  /// Icon size for chips (16dp)
+  static const double chip = xs;
+
+  /// Icon size for toast notifications (20dp)
+  static const double toast = sm;
+
+  /// Icon size for navigation components (24dp)
+  static const double navigation = md;
+
+  /// Icon size for app bar actions (24dp)
+  static const double appBar = md;
+
+  /// Icon size for list tile leading icons (24dp)
+  static const double listTile = md;
+
+  /// Icon size for FAB default (24dp)
+  static const double fab = md;
+
+  /// Icon size for FAB large (32dp)
+  static const double fabLarge = lg;
+
+  /// Icon size for empty/error state illustrations (48dp)
+  static const double stateIcon = xl;
 }
