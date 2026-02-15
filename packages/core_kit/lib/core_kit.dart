@@ -10,6 +10,8 @@ export 'theme/app_spacing.dart';
 export 'theme/app_radius.dart';
 export 'theme/app_shadows.dart';
 export 'theme/app_theme_extension.dart';
+export 'theme/app_theme_builder.dart';
+export 'theme/theme_utils.dart';
 
 // Icons exports
 export 'icons/app_icon.dart';
@@ -73,6 +75,11 @@ export 'widgets/chips/app_chip.dart';
 export 'widgets/chips/app_filter_chip.dart';
 export 'widgets/chips/app_input_chip.dart';
 export 'widgets/chips/app_tag.dart';
+
+// Theme Widgets
+export 'widgets/theme/theme_preview.dart';
+export 'widgets/theme/theme_comparison.dart';
+export 'widgets/theme/theme_debug_overlay.dart';
 
 // Typography
 export 'typography/app_overline.dart';
